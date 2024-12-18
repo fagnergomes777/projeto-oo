@@ -3,10 +3,10 @@ export class Carro {
 
     // metodo construtor e atributos
     constructor(
-        private _modelo: string,
-        private _fabricante: string,
-        private _ano: number,
-        private _cor: string,
+        private _modelo: string, 
+        private _fabricante: string, 
+        private _ano: number, 
+        private _cor: string, 
         private _preco: number) {
             this.modelo = _modelo;
             this.fabricante = _fabricante;
@@ -33,7 +33,7 @@ export class Carro {
     }
 
     public get preco(): number {
-            return this._preco;
+        return this._preco;
     }
 
     // metodo set
@@ -43,7 +43,7 @@ export class Carro {
 
     public set fabricante(fabricante: string) {
         const tamanho = fabricante.trim().length;
-        if (tamanho <3) {
+        if (tamanho < 3) {
             throw new Error('Fabricante inválido');
         }
         this._fabricante = fabricante.trim().toLowerCase();
@@ -66,4 +66,9 @@ export class Carro {
         }
         this._preco = preco;
     }
+
+    toString(): string {
+        return `Modelo: ${this.modelo}, Fabricante: ${this.fabricante}, Ano: ${this.ano}, Cor: ${this.cor}, Preço: ${this.preco}`;
+    }
+
 }

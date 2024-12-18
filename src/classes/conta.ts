@@ -26,12 +26,12 @@ export class Conta {
     }
 
     public set titular(titular: string) {
-        this.titular = titular;
+        this._titular = titular;
     }
 
     public depositar(valor: number): number {
         if (valor <= 0) {
-            throw new Error(`Valor R$ ${valor} para depósito inválido`)
+            throw new Error(`Valor R$ ${valor} para depósito inválido`);
         }
         this._saldo += valor;
         return this._saldo;
@@ -49,12 +49,6 @@ export class Conta {
     }
 
     public transferir(contaDestino: Conta, valor: number): number {
-        if (valor <= 0) {
-            throw new Error(`valor R$ ${valor} para transferência inválido`);
-        }
-        if (this._saldo < valor) {
-            throw new Error (`Saldo insuficiente para transferência de R$ ${valor}`);
-        }
         this.sacar(valor);
         contaDestino.depositar(valor);
         return this._saldo;
