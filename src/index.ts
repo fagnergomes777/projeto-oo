@@ -1,9 +1,10 @@
 import { Carro } from './classes/carro.js';
+import { Conta } from './classes/conta.js';
 
+const irineu = new Conta(1, 'Irineu', 50);
 
-const pajero = new Carro('Pajero', 'Mitsubishi', 2019, 'Prata', 20000);
+console.log(irineu.saldo);
 
-const hilux = new Carro('Hilux', 'Toyota', 2019, 'Branca', 150000);
+irineu.sacar(10000);
 
-console.log(pajero.fabricante);
-console.log(hilux.fabricante);
+console.log(irineu.saldo);
